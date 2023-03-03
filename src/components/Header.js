@@ -7,9 +7,12 @@ import menu from "../images/menu.svg";
 import { useCart } from "react-use-cart";
 import { useFetchProductCategories } from "../fetch/productCategories";
 
+import { useGetCurrentUser } from "../fetch/login";
+
 const Header = () => {
-  const { cartTotal, ...rest } = useCart();
+  const { cartTotal } = useCart();
   const { data } = useFetchProductCategories();
+  const { data: currentUser } = useGetCurrentUser({});
 
   return (
     <>
@@ -61,7 +64,7 @@ const Header = () => {
                     className="d-flex align-items-center gap-10 text-white"
                   >
                     <img src={user} alt="user" />
-                    <p className="mb-0">Log in</p>
+                    <p className="mb-0">{currentUser ? "Account" : "Log in"}</p>
                   </Link>
                 </div>
                 <div>

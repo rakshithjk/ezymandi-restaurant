@@ -2,6 +2,7 @@ import axios from "axios";
 import { useMutation } from "react-query";
 import { API_SERVER } from "../utils/constants";
 import { useQuery } from "react-query";
+import { callApi } from "../utils/utils";
 
 export function useLogin(options = {}) {
   async function mutationFn(data) {
@@ -22,7 +23,7 @@ export function useRegister(options = {}) {
 
 export function useGetCurrentUser(options = {}) {
   async function fetchFn() {
-    const { data } = await axios.get(`${API_SERVER}/currentUser`);
+    const { data } = await callApi(`${API_SERVER}/currentUser`);
     return data;
   }
 

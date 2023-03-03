@@ -1,10 +1,10 @@
-import axios from "axios";
 import { useQuery } from "react-query";
 import { API_SERVER } from "../utils/constants";
+import { callApi } from "../utils/utils";
 
 export function useFetchProduct(productId, options = {}) {
   async function fetchFn() {
-    const { data } = await axios.get(`${API_SERVER}/products/${productId}`);
+    const { data } = await callApi(`${API_SERVER}/products/${productId}`);
     return data;
   }
 
@@ -13,7 +13,7 @@ export function useFetchProduct(productId, options = {}) {
 
 export function useListProduct(filter = "", options = {}) {
   async function fetchFn() {
-    const { data } = await axios.get(`${API_SERVER}/products?${filter}`);
+    const { data } = await callApi(`${API_SERVER}/products?${filter}`);
     return data;
   }
 

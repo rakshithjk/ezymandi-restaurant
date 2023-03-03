@@ -1,10 +1,10 @@
-import axios from "axios";
 import { useQuery } from "react-query";
 import { API_SERVER } from "../utils/constants";
+import { callApi } from "../utils/utils";
 
 export function useFetchProductCategories() {
   async function fetchFn() {
-    const { data } = await axios.get(`${API_SERVER}/productCategories`);
+    const { data } = callApi(`${API_SERVER}/productCategories`);
     return data;
   }
 

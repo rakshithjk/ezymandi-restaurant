@@ -20,7 +20,7 @@ import Checkout from "./pages/Checkout";
 import { CartProvider } from "react-use-cart";
 
 import { QueryClient, QueryClientProvider } from "react-query";
-const queryClient = new QueryClient();
+export const queryClient = new QueryClient();
 
 function App() {
   return (
