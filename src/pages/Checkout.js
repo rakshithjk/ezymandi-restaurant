@@ -1,5 +1,5 @@
 import React from "react";
-
+import watch from "../images/watch.jpg";
 import Container from "../components/Container";
 import { useCart } from "react-use-cart";
 
