@@ -15,13 +15,10 @@ const Login = () => {
 
   const { data } = useGetCurrentUser({});
 
-  console.log("data", !!getAccessToken());
-
   const { mutate: loginFn } = useLogin({
     onSuccess: (resp) => {
       setLoginResponse(resp.data);
       localStorage.setItem(API_TOKEN, resp.data.access_token);
-      window.location.reload();
     },
   });
 
@@ -29,8 +26,8 @@ const Login = () => {
     return <Navigate to="/cart" />;
   }
 
-  if (data) {
-    console.log("data", data);
+  if (!!getAccessToken() && data && !("msg" in data)) {
+    console.log("data 1234", data);
     return (
       <Container class1="login-wrapper py-5 home-wrapper-2">
         <div className="row">

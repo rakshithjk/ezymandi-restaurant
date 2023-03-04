@@ -4,7 +4,7 @@ import { callApi } from "../utils/utils";
 
 export function useFetchProductCategories() {
   async function fetchFn() {
-    const { data } = callApi(`${API_SERVER}/productCategories`);
+    const { data } = await callApi(`${API_SERVER}/productCategories`);
     return data;
   }
 

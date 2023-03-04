@@ -56,7 +56,7 @@ const Home = () => {
                 </div>
 
                 <img
-                  src="images/catbanner-01.png"
+                  src="images/catbanner-02.png"
                   className="img-fluid rounded-3 catbanner"
                   alt="main banner"
                 />
@@ -69,7 +69,7 @@ const Home = () => {
                 </div>
 
                 <img
-                  src="images/catbanner-01.png"
+                  src="images/catbanner-03.png"
                   className="img-fluid rounded-3 catbanner"
                   alt="main banner"
                 />
@@ -82,7 +82,7 @@ const Home = () => {
                 </div>
 
                 <img
-                  src="images/catbanner-01.png"
+                  src="images/catbanner-04.png"
                   className="img-fluid rounded-3 catbanner"
                   alt="main banner"
                 />
@@ -96,7 +96,10 @@ const Home = () => {
           <div className="col-12">
             <div className="categories d-flex justify-content-between flex-wrap align-items-center">
               {categories.map((category) => (
-                <Link to={`/products?category=[${category.CategoryID}]`}>
+                <Link
+                  key={category.CategoryID}
+                  to={`/products?category=[${category.CategoryID}]`}
+                >
                   <div className="d-flex gap align-items-center">
                     <div>
                       <h6>{category.CategoryName}</h6>
@@ -104,7 +107,7 @@ const Home = () => {
                     <img
                       src={`${S3_SERVER}${category.CategoryName.split(" ").join(
                         ""
-                      )}.jpg`}
+                      )}.png`}
                       alt="category"
                       height={150}
                     />
@@ -112,12 +115,12 @@ const Home = () => {
                 </Link>
               ))}
             </div>
+            <div className="categories d-flex align-items-center justify-content-center">
+              <Link to="/products">
+                <span> View All Products</span>
+              </Link>
+            </div>
           </div>
-        </div>
-        <div className="d-flex align-items-center justify-content-center">
-          <Link to="/products">
-            <span> View All Products</span>
-          </Link>
         </div>
       </Container>
 
@@ -125,23 +128,23 @@ const Home = () => {
         <div className="row">
           <div className="col-3">
             <div className="famous-card position-relative">
+              <div className="famous-content position-absolute">
+                <h5>Premium</h5>
+                <h6>Cashews</h6>
+                <p>All grades and varieties available</p>
+              </div>
               <img
-                src="images/catbanner-01.png"
-                className="img-fluid"
+                src="images/famous-1.png"
+                className="img-fluid "
                 alt="famous"
                 height={150}
               />
-              <div className="famous-content position-absolute">
-                <h5 className="text-dark">Premium</h5>
-                <h6 className="text-dark">Cashews</h6>
-                <p className="text-dark">All grades and varieties available</p>
-              </div>
             </div>
           </div>
           <div className="col-3">
             <div className="famous-card position-relative">
               <img
-                src="images/catbanner-01.png"
+                src="images/famous-2.png"
                 className="img-fluid"
                 alt="famous"
               />
@@ -155,7 +158,7 @@ const Home = () => {
           <div className="col-3">
             <div className="famous-card position-relative">
               <img
-                src="images/catbanner-01.png"
+                src="images/famous-3.png"
                 className="img-fluid"
                 alt="famous"
               />
@@ -171,14 +174,16 @@ const Home = () => {
           <div className="col-3">
             <div className="famous-card position-relative">
               <img
-                src="images/catbanner-01.png"
+                src="images/famous-4.png"
                 className="img-fluid"
                 alt="famous"
               />
               <div className="famous-content position-absolute">
                 <h5 className="text-dark">Spices</h5>
                 <h6 className="text-dark">Cloves.</h6>
-                <p className="text-dark">Premium handpicked</p>
+                <p className="text-dark">
+                  Organic handpicked from Madagascar,Sri Lanka and Kerala
+                </p>
               </div>
             </div>
           </div>
