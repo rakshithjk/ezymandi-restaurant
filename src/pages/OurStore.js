@@ -96,8 +96,8 @@ const OurStore = () => {
                 <div className="d-flex flex-wrap align-items-center gap-10">
                   <div className="form-floating">
                     <input
-                      type="email"
-                      className="form-control"
+                      type="number"
+                      className="form-control min-form"
                       id="floatingInput"
                       placeholder="From"
                     />
@@ -105,8 +105,8 @@ const OurStore = () => {
                   </div>
                   <div className="form-floating">
                     <input
-                      type="email"
-                      className="form-control"
+                      type="number"
+                      className="form-control min-form"
                       id="floatingInput1"
                       placeholder="To"
                     />

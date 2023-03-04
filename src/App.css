@@ -43,6 +43,10 @@ a {
 .form-control {
   min-width: 50px;
 }
+.min-form {
+  min-width: 20px;
+  width: 65px;
+}
 
 .gap-10 {
   gap: 10px;
