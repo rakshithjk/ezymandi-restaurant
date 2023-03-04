@@ -1,15 +1,22 @@
 import React from "react";
 import BreadCrumb from "../components/BreadCrumb";
 import Meta from "../components/Meta";
-import watch from "../images/watch.jpg";
 import { AiFillDelete } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Container from "../components/Container";
 import { useCart } from "react-use-cart";
+import { useGetCurrentUser } from "../fetch/login";
+import { getAccessToken } from "../utils/utils";
 
 const Cart = () => {
   const { items, removeItem, cartTotal, updateItemQuantity } = useCart();
-
+  const { data, error } = useGetCurrentUser({});
+  console.log(
+    'data && !("msg" in data)',
+    data,
+    error,
+    data && !("msg" in data)
+  );
   return (
     <>
       <Meta title={"Cart"} />
@@ -44,7 +51,7 @@ const Cart = () => {
                   <div className="cart-col-2">
                     <h5 className="price">₹ {price}</h5>
                   </div>
-                  <div className="cart-col-3 d-flex align-items-center gap-15">
+                  <div className="cart-col-3 d-flex align-items-center ">
                     <div>
                       <input
                         className="form-control"
@@ -83,9 +90,15 @@ const Cart = () => {
               <div className="d-flex flex-column align-items-end">
                 <h4>SubTotal: ₹ {cartTotal}</h4>
                 <p>All Prices excluding Taxes and Shipping.</p>
-                <Link to="/checkout" className="button">
-                  Checkout
-                </Link>
+                {!!getAccessToken() && data && !("msg" in data) ? (
+                  <Link to="/checkout" className="button">
+                    Confirm
+                  </Link>
+                ) : (
+                  <Link to="/login" className="button">
+                    Login to confirm order
+                  </Link>
+                )}
               </div>
             </div>
           </div>

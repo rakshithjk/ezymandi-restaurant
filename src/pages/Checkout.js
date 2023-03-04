@@ -1,10 +1,12 @@
 import React from "react";
-import watch from "../images/watch.jpg";
+
 import Container from "../components/Container";
 import { useCart } from "react-use-cart";
+import { useGetCurrentUser } from "../fetch/login";
 
 const Checkout = () => {
-  const { items, removeItem, cartTotal, updateItemQuantity } = useCart();
+  const { items, cartTotal } = useCart();
+  const { data } = useGetCurrentUser({});
 
   return (
     <>
@@ -30,7 +32,7 @@ const Checkout = () => {
               </nav>
               <h4 className="title total">Contact Information</h4>
               <p className="user-details total">
-                Navdeep Dahiya (monud0232@gmail.com)
+                {data[0].RestaurantName} ({data[0].Phone})
               </p>
             </div>
             Order confirmed

@@ -35,14 +35,14 @@ const Header = () => {
       <header className="header-upper py-3">
         <div className="container-xxl">
           <div className="row align-items-center">
-            <div className="col-2">
+            <div className="col-3">
               <h2>
                 <Link to="/" className="text-white">
-                  EzyMandi
+                  Ezy Mandi
                 </Link>
               </h2>
             </div>
-            <div className="col-5">
+            <div className="col-4">
               <div className="input-group">
                 <input
                   type="text"
@@ -56,9 +56,9 @@ const Header = () => {
                 </span>
               </div>
             </div>
-            <div className="col-5">
-              <div className="header-upper-links d-flex align-items-center justify-content-sm-end">
-                <div className="px-5">
+            <div className="col-4">
+              <div className="header-upper-links flex-wrap d-flex align-items-center justify-content-sm-end">
+                <div>
                   <Link
                     to="/login"
                     className="d-flex align-items-center gap-10 text-white"
@@ -87,7 +87,7 @@ const Header = () => {
         <div className="container-xxl">
           <div className="row">
             <div className="col-12">
-              <div className="menu-bottom d-flex align-items-center gap-30">
+              <div className="menu-bottom d-flex flex-wrap align-items-center gap-30">
                 <div>
                   <div className="dropdown">
                     <button
@@ -120,7 +120,7 @@ const Header = () => {
                   </div>
                 </div>
                 <div className="menu-links">
-                  <div className="d-flex align-items-center gap-15">
+                  <div className="d-flex align-items-center gap-15 flex-wrap">
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/products">Our Store</NavLink>
                     <NavLink to="/contact">Contact</NavLink>

@@ -14,7 +14,7 @@ const Home = () => {
     <>
       <Container class1="home-wrapper-1 py-5">
         <div className="row">
-          <div className="col-6">
+          <div className="col-sm-6">
             <div className="main-banner position-relative ">
               <img
                 src="images/main-banner-1.png"
@@ -32,7 +32,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-6">
+          <div className="col-sm-6">
             <div className="d-flex flex-wrap gap-10 justify-content-between align-items-center">
               <div className="d-flex justify-content-between small-banner blue position-relative">
                 <div className="small-banner-content">
@@ -100,7 +100,7 @@ const Home = () => {
                   key={category.CategoryID}
                   to={`/products?category=[${category.CategoryID}]`}
                 >
-                  <div className="d-flex gap align-items-center">
+                  <div className="d-flex gap align-items-center flex-wrap">
                     <div>
                       <h6>{category.CategoryName}</h6>
                     </div>
@@ -125,66 +125,49 @@ const Home = () => {
       </Container>
 
       <Container class1="famous-wrapper py-5 home-wrapper-2">
-        <div className="row">
-          <div className="col-3">
-            <div className="famous-card position-relative">
-              <div className="famous-content position-absolute">
-                <h5>Premium</h5>
-                <h6>Cashews</h6>
-                <p>All grades and varieties available</p>
-              </div>
-              <img
-                src="images/famous-1.png"
-                className="img-fluid "
-                alt="famous"
-                height={150}
-              />
+        <div className="d-flex flex-wrap  justify-content-between align-items-center">
+          <div className="famous-card position-relative">
+            <div className="famous-content position-absolute">
+              <h5>Premium</h5>
+              <h6>Cashews</h6>
+              <p>All grades and varieties available</p>
+            </div>
+            <img
+              src="images/famous-1.png"
+              className="img-fluid "
+              alt="famous"
+              height={150}
+            />
+          </div>
+
+          <div className="famous-card position-relative">
+            <img src="images/famous-2.png" className="img-fluid" alt="famous" />
+            <div className="famous-content position-absolute">
+              <h5 className="text-dark">Dry Fruits</h5>
+              <h6 className="text-dark">Raisins</h6>
+              <p className="text-dark">Top Quality</p>
             </div>
           </div>
-          <div className="col-3">
-            <div className="famous-card position-relative">
-              <img
-                src="images/famous-2.png"
-                className="img-fluid"
-                alt="famous"
-              />
-              <div className="famous-content position-absolute">
-                <h5 className="text-dark">Dry Fruits</h5>
-                <h6 className="text-dark">Raisins</h6>
-                <p className="text-dark">Top Quality</p>
-              </div>
+
+          <div className="famous-card position-relative">
+            <img src="images/famous-3.png" className="img-fluid" alt="famous" />
+            <div className="famous-content position-absolute">
+              <h5 className="text-dark">Spices</h5>
+              <h6 className="text-dark">Cinammon.</h6>
+              <p className="text-dark">
+                Handpicked from Meghalaya, Vietnam and Kerala
+              </p>
             </div>
           </div>
-          <div className="col-3">
-            <div className="famous-card position-relative">
-              <img
-                src="images/famous-3.png"
-                className="img-fluid"
-                alt="famous"
-              />
-              <div className="famous-content position-absolute">
-                <h5 className="text-dark">Spices</h5>
-                <h6 className="text-dark">Cinammon.</h6>
-                <p className="text-dark">
-                  Handpicked from Meghalaya, Vietnam and Kerala
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="col-3">
-            <div className="famous-card position-relative">
-              <img
-                src="images/famous-4.png"
-                className="img-fluid"
-                alt="famous"
-              />
-              <div className="famous-content position-absolute">
-                <h5 className="text-dark">Spices</h5>
-                <h6 className="text-dark">Cloves.</h6>
-                <p className="text-dark">
-                  Organic handpicked from Madagascar,Sri Lanka and Kerala
-                </p>
-              </div>
+
+          <div className="famous-card position-relative">
+            <img src="images/famous-4.png" className="img-fluid" alt="famous" />
+            <div className="famous-content position-absolute">
+              <h5 className="text-dark">Spices</h5>
+              <h6 className="text-dark">Cloves.</h6>
+              <p className="text-dark">
+                Organic handpicked from Madagascar,Sri Lanka and Kerala
+              </p>
             </div>
           </div>
         </div>

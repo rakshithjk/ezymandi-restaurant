@@ -7,8 +7,8 @@ const Footer = () => {
     <>
       <footer className="py-4">
         <div className="container-xxl">
-          <div className="row">
-            <div className="col-4">
+          <div className="row text-break">
+            <div className="col-sm-4">
               <h4 className="text-white mb-4">Contact Us</h4>
               <div>
                 <address className="text-white fs-6">
@@ -36,7 +36,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="col-3">
+            <div className="col-sm-4">
               <h4 className="text-white mb-4">Information</h4>
               <div className="footer-link d-flex flex-column">
                 <Link to="/privacy-policy" className="text-white py-2 mb-1">
@@ -53,7 +53,7 @@ const Footer = () => {
                 </Link>
               </div>
             </div>
-            <div className="col-3">
+            <div className="col-sm-4">
               <h4 className="text-white mb-4">Account</h4>
               <div className="footer-link d-flex flex-column">
                 <Link className="text-white py-2 mb-1">About Us</Link>

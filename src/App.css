@@ -40,6 +40,9 @@ a {
   box-shadow: none;
   border-color: inherit;
 }
+.form-control {
+  min-width: 50px;
+}
 
 .gap-10 {
   gap: 10px;
@@ -131,6 +134,11 @@ footer .input-group-text {
   top: 15%;
   left: 5%;
 }
+@media (max-width: 768px) {
+  [class*="main-banner-content"] {
+    top: 0;
+  }
+}
 .main-banner-content h4 {
   font-size: 16px;
   font-weight: 400;
@@ -198,6 +206,7 @@ footer .input-group-text {
   width: 48%;
   padding: 10px;
   border-radius: 4px;
+  overflow: hidden;
 }
 
 .home-wrapper-1 .catbanner {
@@ -242,7 +251,11 @@ footer .input-group-text {
 }
 /* categories section ends here */
 /* Home Page Ends */
-
+@media (max-width: 768px) {
+  [class*="col-"] {
+    margin-bottom: 15px;
+  }
+}
 /* Product Card */
 
 .product-card {
@@ -298,6 +311,10 @@ footer .input-group-text {
 
 /* famous card */
 
+.famous-card {
+  min-width: 250px;
+  max-width: 280px;
+}
 .famous-card .famous-content {
   top: 10%;
   left: 5%;
@@ -338,6 +355,7 @@ footer .input-group-text {
   background-color: white;
   border-radius: 10px;
   padding: 15px 15px 25px;
+  width: fit-content;
 }
 .filter-title {
   font-size: 16px;
@@ -345,6 +363,11 @@ footer .input-group-text {
   font-weight: 600;
   color: var(--color-1c1c1b);
   margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+  [class*="filter-title"] {
+    font-size: 0.8em;
+  }
 }
 .filter-card ul,
 .filter-card .form-check-label {
