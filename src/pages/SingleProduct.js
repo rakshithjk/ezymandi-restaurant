@@ -37,14 +37,14 @@ const SingleProduct = () => {
       <BreadCrumb title="Product Name" />
       <Container class1="main-product-wrapper  home-wrapper-2">
         <div className="row">
-          <div className="col-6">
+          <div className="col-sm-6">
             <div className="main-product-image">
               <div>
                 <ReactImageZoom {...props} />
               </div>
             </div>
           </div>
-          <div className="col-6">
+          <div className="col-sm-6">
             <div className="main-product-details">
               <div className="border-bottom">
                 <h3 className="title">{ProductName}</h3>
@@ -58,7 +58,7 @@ const SingleProduct = () => {
                     Quantity : {ProductWeight} kg
                   </h3>
                 </div>
-                <div className="d-flex align-items-center gap-15 flex-row mt-2 mb-3">
+                <div className="d-flex flex-wrap align-items-center gap-15 flex-row mt-2 mb-3">
                   <h3 className="product-heading">Quantity :</h3>
                   <div className="">
                     <input
@@ -75,7 +75,7 @@ const SingleProduct = () => {
                       }}
                     />
                   </div>
-                  <div className="d-flex align-items-center gap-30 ms-5">
+                  <div className="d-flex align-items-center gap-30 ">
                     <button
                       className="button border-0"
                       data-bs-toggle="modal"
