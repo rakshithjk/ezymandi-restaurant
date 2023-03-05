@@ -6,6 +6,23 @@ import Container from "../components/Container";
 import { useListProduct } from "../fetch/product";
 import { useFetchProductCategories } from "../fetch/productCategories";
 import { useSearchParams } from "react-router-dom";
+import { productSubCategories } from "../utils/constants";
+
+const constructListFilter = (category = "", products = "") => {
+  let filter = "";
+  if (category.length > 0) {
+    filter = `category=${category.join(",")}`;
+  }
+  if (products.length > 0) {
+    if (filter.length > 0) {
+      filter = filter + `&products=${products.join(",")}`;
+    } else {
+      filter = `products=${products.join(",")}`;
+    }
+  }
+
+  return filter;
+};
 
 const OurStore = () => {
   const [grid, setGrid] = useState(
@@ -25,15 +42,22 @@ const OurStore = () => {
   const [selectedCategory, setCategory] = useState(
     JSON.parse(searchParams.get("category") ?? "[]")
   );
-  console.log("selectedCategory", selectedCategory);
+
+  const [selectedProducts, setSelectedProducts] = useState(
+    JSON.parse(searchParams.get("products") ?? "[]")
+  );
+
   const { data, refetch } = useListProduct(
-    selectedCategory.length > 0 ? `category=${selectedCategory.join(",")}` : ""
+    constructListFilter(selectedCategory)
   );
 
   useEffect(() => {
     refetch();
-    setSearchParams({ category: JSON.stringify(selectedCategory) });
-  }, [selectedCategory]);
+    setSearchParams({
+      category: JSON.stringify(selectedCategory),
+      products: JSON.stringify(selectedProducts),
+    });
+  }, [selectedCategory, selectedProducts]);
 
   return (
     <>
@@ -55,7 +79,7 @@ const OurStore = () => {
                           if (prev.includes(selected)) {
                             const index = prev.indexOf(selected);
                             delete prev[index];
-                            console.log("deleted", prev);
+
                             return [...prev].filter((f) => f);
                           } else {
                             return [...prev, JSON.parse(selected)];
@@ -79,13 +103,32 @@ const OurStore = () => {
               <h3 className="filter-title">Shop By Products</h3>
               <div>
                 <ul className="ps-0">
-                  <li>Cashew</li>
-                  <li>Raisins / Kishmish</li>
-                  <li>Cinnamon</li>
-                  <li>Cloves</li>
-                  <li>Bay Leaves</li>
-                  <li>Star Anise</li>
-                  <li>Chilli Powder</li>
+                  {productSubCategories?.map(({ name, id }) => (
+                    <option
+                      key={name}
+                      onClick={(e) =>
+                        setSelectedProducts((prev) => {
+                          const selected = JSON.parse(e.target.value);
+                          if (prev.includes(selected)) {
+                            const index = prev.indexOf(selected);
+                            delete prev[index];
+
+                            return [...prev].filter((f) => f);
+                          } else {
+                            return [...prev, JSON.parse(selected)];
+                          }
+                        })
+                      }
+                      value={id}
+                      className={`${
+                        selectedProducts.includes(id)
+                          ? "selected-item-category"
+                          : ""
+                      }`}
+                    >
+                      {name}
+                    </option>
+                  ))}
                 </ul>
               </div>
             </div>

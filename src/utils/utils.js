@@ -9,7 +9,6 @@ export const callApi = async (endpoint) => {
 
   const accessToken = getAccessToken();
   if (accessToken) {
-    console.log(accessToken);
     headers["Authorization"] = `Bearer ${accessToken}`;
   }
 

@@ -10,13 +10,8 @@ import { getAccessToken } from "../utils/utils";
 
 const Cart = () => {
   const { items, removeItem, cartTotal, updateItemQuantity } = useCart();
-  const { data, error } = useGetCurrentUser({});
-  console.log(
-    'data && !("msg" in data)',
-    data,
-    error,
-    data && !("msg" in data)
-  );
+  const { data } = useGetCurrentUser({});
+
   return (
     <>
       <Meta title={"Cart"} />

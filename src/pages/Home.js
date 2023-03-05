@@ -1,6 +1,5 @@
 import React from "react";
-import { Link, createSearchParams } from "react-router-dom";
-import ProductCard from "../components/ProductCard";
+import { Link } from "react-router-dom";
 import Container from "../components/Container";
 
 import { useFetchProductCategories } from "../fetch/productCategories";
@@ -9,7 +8,7 @@ import { S3_SERVER } from "../utils/constants";
 const Home = () => {
   const { data } = useFetchProductCategories();
   const categories = data ?? [];
-  console.log(categories);
+
   return (
     <>
       <Container class1="home-wrapper-1 py-5">

@@ -27,7 +27,6 @@ const Login = () => {
   }
 
   if (!!getAccessToken() && data && !("msg" in data)) {
-    console.log("data 1234", data);
     return (
       <Container class1="login-wrapper py-5 home-wrapper-2">
         <div className="row">

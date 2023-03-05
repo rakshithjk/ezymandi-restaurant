@@ -1,8 +1,8 @@
 import React from "react";
 import BreadCrumb from "../components/BreadCrumb";
 import Meta from "../components/Meta";
-import { AiOutlineHome, AiOutlineMail } from "react-icons/ai";
-import { BiPhoneCall, BiInfoCircle } from "react-icons/bi";
+import { AiOutlineMail } from "react-icons/ai";
+import { BiPhoneCall } from "react-icons/bi";
 import Container from "../components/Container";
 
 const Contact = () => {

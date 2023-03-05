@@ -6,7 +6,6 @@ import { callApi } from "../utils/utils";
 
 export function useLogin(options = {}) {
   async function mutationFn(data) {
-    console.log("data", data);
     const reponse = await axios.post(`${API_SERVER}/login`, data);
     return reponse;
   }

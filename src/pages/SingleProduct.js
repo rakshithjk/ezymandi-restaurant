@@ -10,9 +10,8 @@ import { useCart } from "react-use-cart";
 
 const SingleProduct = () => {
   const { id } = useParams();
-  const { addItem, ...rest } = useCart();
+  const { addItem } = useCart();
 
-  console.log("rest", rest);
   const [quantity, SetQuantity] = useState(1);
 
   const { data } = useFetchProduct(id, { enabled: !!id });
@@ -25,9 +24,7 @@ const SingleProduct = () => {
     height: 400,
     zoomWidth: 600,
 
-    img:
-      ProductImage ??
-      "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?cs=srgb&dl=pexels-fernando-arcos-190819.jpg&fm=jpg",
+    img: ProductImage ?? "images/frame-1.png",
   };
 
   const closeModal = () => {};
@@ -82,7 +79,6 @@ const SingleProduct = () => {
                       data-bs-target="#staticBackdrop"
                       type="button"
                       onClick={() => {
-                        console.log("data", data, quantity);
                         addItem(
                           {
                             ...data,

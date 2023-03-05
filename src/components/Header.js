@@ -55,7 +55,6 @@ const Header = () => {
                       fetch(`${API_SERVER}/products?search=${query}`)
                         .then((response) => response.json())
                         .then((resp) => {
-                          console.log("rest", resp);
                           resolve(
                             resp.map(({ ProductID, ProductName }) => ({
                               value: ProductID,
