@@ -20,7 +20,9 @@ import Checkout from "./pages/Checkout";
 import { CartProvider } from "react-use-cart";
 
 import { QueryClient, QueryClientProvider } from "react-query";
-export const queryClient = new QueryClient();
+export const queryClient = new QueryClient({
+  defaultOptions: { queries: { refetchOnWindowFocus: false, retry: false } },
+});
 
 function App() {
   return (

@@ -1,19 +1,23 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-import { BsSearch } from "react-icons/bs";
 import user from "../images/user.svg";
 import cart from "../images/cart.svg";
 import menu from "../images/menu.svg";
 import { useCart } from "react-use-cart";
 import { useFetchProductCategories } from "../fetch/productCategories";
+import SelectSearch from "react-select-search";
+import { useNavigate } from "react-router-dom";
 
 import { useGetCurrentUser } from "../fetch/login";
+import "./selector.css";
+import { API_SERVER } from "../utils/constants";
 
 const Header = () => {
   const { cartTotal } = useCart();
   const { data } = useFetchProductCategories();
   const { data: currentUser } = useGetCurrentUser({});
 
+  const navigate = useNavigate();
   return (
     <>
       <header className="header-top-strip py-3">
@@ -44,16 +48,27 @@ const Header = () => {
             </div>
             <div className="col-4">
               <div className="input-group">
-                <input
-                  type="text"
-                  className="form-control py-2"
-                  placeholder="Search Product Here..."
-                  aria-label="Search Product Here..."
-                  aria-describedby="basic-addon2"
+                <SelectSearch
+                  onChange={(search) => navigate(`/product/${search}`)}
+                  getOptions={(query) => {
+                    return new Promise((resolve, reject) => {
+                      fetch(`${API_SERVER}/products?search=${query}`)
+                        .then((response) => response.json())
+                        .then((resp) => {
+                          console.log("rest", resp);
+                          resolve(
+                            resp.map(({ ProductID, ProductName }) => ({
+                              value: ProductID,
+                              name: ProductName,
+                            }))
+                          );
+                        })
+                        .catch(reject);
+                    });
+                  }}
+                  search
+                  placeholder="Search"
                 />
-                <span className="input-group-text p-3" id="basic-addon2">
-                  <BsSearch className="fs-6" />
-                </span>
               </div>
             </div>
             <div className="col-4">
