@@ -19,3 +19,18 @@ export function useListProduct(filter = "", options = {}) {
 
   return useQuery(["product", "list"], fetchFn, options);
 }
+
+export function useFetchSimilarProduct(productId, options = {}, a) {
+  console.log("productId", productId);
+  async function fetchFn(id) {
+    const { data } = await callApi(`${API_SERVER}/products/${id}/similar`);
+    return data;
+  }
+
+  return useQuery(
+    ["product", "similar", productId],
+    () => fetchFn(productId),
+
+    options
+  );
+}

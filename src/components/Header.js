@@ -71,7 +71,7 @@ const Header = () => {
               </div>
             </div>
             <div className="col-4">
-              <div className="header-upper-links flex-wrap d-flex align-items-center justify-content-sm-end">
+              <div className="header-upper-links flex-wrap d-flex align-items-center justify-content-around">
                 <div>
                   <Link
                     to="/login"

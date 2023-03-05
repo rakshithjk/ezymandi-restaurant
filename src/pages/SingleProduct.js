@@ -5,7 +5,7 @@ import ProductCard from "../components/ProductCard";
 import ReactImageZoom from "react-image-zoom";
 import { Link, useParams } from "react-router-dom";
 import Container from "../components/Container";
-import { useFetchProduct } from "../fetch/product";
+import { useFetchProduct, useFetchSimilarProduct } from "../fetch/product";
 import { useCart } from "react-use-cart";
 
 const SingleProduct = () => {
@@ -15,6 +15,15 @@ const SingleProduct = () => {
   const [quantity, SetQuantity] = useState(1);
 
   const { data } = useFetchProduct(id, { enabled: !!id });
+
+  const { data: similarProducts } = useFetchSimilarProduct(
+    data?.[0].productSubCategory,
+    {
+      enabled: !!data?.[0].productSubCategory,
+    }
+  );
+
+  console.log("data?.[0]", similarProducts, similarProducts?.len);
 
   const { ProductName, ProductPrice, ProductWeight, ProductImage, ProductID } =
     data?.[0] ?? {};
@@ -120,16 +129,20 @@ const SingleProduct = () => {
           </div>
         </div>
       </Container>
-      <Container class1="popular-wrapper py-5 home-wrapper-2">
-        <div className="row">
-          <div className="col-12">
-            <h3 className="section-heading">Our Simlar Products</h3>
+      {similarProducts?.length > 0 && (
+        <Container class1="popular-wrapper py-5 home-wrapper-2">
+          <div className="row">
+            <div className="col-12">
+              <h3 className="section-heading">Our Simlar Products</h3>
+            </div>
           </div>
-        </div>
-        <div className="row">
-          <ProductCard />
-        </div>
-      </Container>
+          <div className="row">
+            {similarProducts?.map((item) => (
+              <ProductCard data={item} />
+            ))}
+          </div>
+        </Container>
+      )}
 
       <div
         className="modal fade"

@@ -20,6 +20,7 @@ import Checkout from "./pages/Checkout";
 import { CartProvider } from "react-use-cart";
 
 import { QueryClient, QueryClientProvider } from "react-query";
+import ScrollToTop from "./utils/scrollToTop";
 export const queryClient = new QueryClient({
   defaultOptions: { queries: { refetchOnWindowFocus: false, retry: false } },
 });
@@ -29,25 +30,27 @@ function App() {
     <CartProvider>
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
-              <Route path="about" element={<About />} />
-              <Route path="contact" element={<Contact />} />
-              <Route path="products" element={<OurStore />} />
-              <Route path="product/:id" element={<SingleProduct />} />
-              <Route path="cart" element={<Cart />} />
-              <Route path="checkout" element={<Checkout />} />
-              <Route path="login" element={<Login />} />
-              <Route path="forgot-password" element={<Forgotpassword />} />
-              <Route path="signup" element={<Signup />} />
-              <Route path="reset-password" element={<Resetpassword />} />
-              <Route path="privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="refund-policy" element={<RefundPloicy />} />
-              <Route path="shipping-policy" element={<ShippingPolicy />} />
-              <Route path="term-conditions" element={<TermAndContions />} />
-            </Route>
-          </Routes>
+          <ScrollToTop>
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Home />} />
+                <Route path="about" element={<About />} />
+                <Route path="contact" element={<Contact />} />
+                <Route path="products" element={<OurStore />} />
+                <Route path="product/:id" element={<SingleProduct />} />
+                <Route path="cart" element={<Cart />} />
+                <Route path="checkout" element={<Checkout />} />
+                <Route path="login" element={<Login />} />
+                <Route path="forgot-password" element={<Forgotpassword />} />
+                <Route path="signup" element={<Signup />} />
+                <Route path="reset-password" element={<Resetpassword />} />
+                <Route path="privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="refund-policy" element={<RefundPloicy />} />
+                <Route path="shipping-policy" element={<ShippingPolicy />} />
+                <Route path="term-conditions" element={<TermAndContions />} />
+              </Route>
+            </Routes>
+          </ScrollToTop>
         </BrowserRouter>
       </QueryClientProvider>
     </CartProvider>

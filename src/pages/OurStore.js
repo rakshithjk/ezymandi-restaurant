@@ -15,9 +15,9 @@ const constructListFilter = (category = "", products = "") => {
   }
   if (products.length > 0) {
     if (filter.length > 0) {
-      filter = filter + `&products=${products.join(",")}`;
+      filter = filter + `&subCategory=${products.join(",")}`;
     } else {
-      filter = `products=${products.join(",")}`;
+      filter = `subCategory=${products.join(",")}`;
     }
   }
 
@@ -48,7 +48,7 @@ const OurStore = () => {
   );
 
   const { data, refetch } = useListProduct(
-    constructListFilter(selectedCategory)
+    constructListFilter(selectedCategory, selectedProducts)
   );
 
   useEffect(() => {
