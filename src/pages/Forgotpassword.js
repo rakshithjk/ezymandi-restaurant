@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import BreadCrumb from "../components/BreadCrumb";
 import Meta from "../components/Meta";
 import { Link } from "react-router-dom";
 import Container from "../components/Container";
 import CustomInput from "../components/CustomInput";
+import { useRestPassword } from "../fetch/login";
 const Forgotpassword = () => {
+  const [loginResponse, setLoginResponse] = useState();
+
+  const { mutate: resetFn } = useRestPassword({
+    onSuccess: (resp) => {
+      setLoginResponse(resp.data);
+    },
+  });
+
   return (
     <>
       <Meta title={"Forgot Password"} />
@@ -15,10 +24,20 @@ const Forgotpassword = () => {
             <div className="auth-card">
               <h3 className="text-center mb-3">Reset Your Password</h3>
               <p className="text-center mt-2 mb-3">
-                We will send you an email to reset your password
+                We will contact you to reset your password
               </p>
-              <form action="" className="d-flex flex-column gap-15">
-                <CustomInput type="email" name="email" placeholder="Email" />
+              <form
+                action=""
+                onSubmit={(event) => {
+                  event.preventDefault();
+
+                  const mobile = event.target.mobile.value;
+
+                  resetFn({ mobile });
+                }}
+                className="d-flex flex-column gap-15"
+              >
+                <CustomInput type="number" name="number" placeholder="Mobile" />
 
                 <div>
                   <div className="mt-3 d-flex justify-content-center flex-column gap-15 align-items-center">
@@ -29,6 +48,8 @@ const Forgotpassword = () => {
                   </div>
                 </div>
               </form>
+              {loginResponse?.message.includes("Success") &&
+                "Request received. We will contact you shortly. Please call us in case of urgency"}
             </div>
           </div>
         </div>

@@ -28,3 +28,11 @@ export function useGetCurrentUser(options = {}) {
 
   return useQuery(["current", "user"], fetchFn, options);
 }
+
+export function useRestPassword(options = {}) {
+  async function mutationFn(data) {
+    const reponse = await axios.post(`${API_SERVER}/reset_password`, data);
+    return reponse;
+  }
+  return useMutation(mutationFn, options);
+}

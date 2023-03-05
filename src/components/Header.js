@@ -28,6 +28,7 @@ const Header = () => {
             </div>
             <div className="col-6">
               <p className="text-end text-white mb-0">
+                In case of queries, call / whatsapp{"    "}
                 <a className="text-white" href="tel:+91 8264954234">
                   +91 6360747479
                 </a>
