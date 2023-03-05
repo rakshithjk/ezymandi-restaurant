@@ -134,6 +134,12 @@ footer .input-group-text {
 /* Footer Part Ends Here */
 
 /* Home Page */
+.small-banner:hover {
+  cursor: pointer;
+}
+.famous-card:hover {
+  cursor: pointer;
+}
 .main-banner-content {
   top: 15%;
   left: 5%;

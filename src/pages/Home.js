@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Container from "../components/Container";
 
 import { useFetchProductCategories } from "../fetch/productCategories";
@@ -8,6 +8,8 @@ import { S3_SERVER } from "../utils/constants";
 const Home = () => {
   const { data } = useFetchProductCategories();
   const categories = data ?? [];
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -27,13 +29,20 @@ const Home = () => {
                   PUDDING.
                 </h5>
                 <p>Staring from ₹30 </p>
-                <Link className="button">BUY NOW</Link>
+                <Link to="/products?subCategory=[8]" className="button">
+                  BUY NOW
+                </Link>
               </div>
             </div>
           </div>
           <div className="col-sm-6">
             <div className="d-flex flex-wrap gap-10 justify-content-between align-items-center">
-              <div className="d-flex justify-content-between small-banner blue position-relative">
+              <div
+                className="d-flex justify-content-between small-banner blue position-relative "
+                onClick={() => {
+                  navigate("/products?subCategory=[1]");
+                }}
+              >
                 <div className="small-banner-content">
                   <h4>Best Quality</h4>
                   <h5>Baby Cashew </h5>
@@ -73,7 +82,12 @@ const Home = () => {
                   alt="main banner"
                 />
               </div>
-              <div className="d-flex justify-content-between small-banner orange position-relative ">
+              <div
+                className="d-flex justify-content-between small-banner orange position-relative "
+                onClick={() => {
+                  navigate("/products?subCategory=[2]");
+                }}
+              >
                 <div className="small-banner-content ">
                   <h4>Imported </h4>
                   <h5>Cinnamon Rolls</h5>
@@ -125,7 +139,12 @@ const Home = () => {
 
       <Container class1="famous-wrapper py-5 home-wrapper-2">
         <div className="d-flex flex-wrap  justify-content-between align-items-center">
-          <div className="famous-card position-relative">
+          <div
+            className="famous-card position-relative"
+            onClick={() => {
+              navigate("/products?subCategory=[1,7,6]");
+            }}
+          >
             <div className="famous-content position-absolute">
               <h5>Premium</h5>
               <h6>Cashews</h6>
@@ -148,7 +167,12 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="famous-card position-relative">
+          <div
+            className="famous-card position-relative"
+            onClick={() => {
+              navigate("/products?subCategory=[2]");
+            }}
+          >
             <img src="images/famous-3.png" className="img-fluid" alt="famous" />
             <div className="famous-content position-absolute">
               <h5 className="text-dark">Spices</h5>
@@ -159,7 +183,12 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="famous-card position-relative">
+          <div
+            className="famous-card position-relative"
+            onClick={() => {
+              navigate("/products?subCategory=[3]");
+            }}
+          >
             <img src="images/famous-4.png" className="img-fluid" alt="famous" />
             <div className="famous-content position-absolute">
               <h5 className="text-dark">Spices</h5>

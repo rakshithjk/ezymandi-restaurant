@@ -44,7 +44,7 @@ const OurStore = () => {
   );
 
   const [selectedProducts, setSelectedProducts] = useState(
-    JSON.parse(searchParams.get("products") ?? "[]")
+    JSON.parse(searchParams.get("subCategory") ?? "[]")
   );
 
   const { data, refetch } = useListProduct(
@@ -55,7 +55,7 @@ const OurStore = () => {
     refetch();
     setSearchParams({
       category: JSON.stringify(selectedCategory),
-      products: JSON.stringify(selectedProducts),
+      subCategory: JSON.stringify(selectedProducts),
     });
   }, [selectedCategory, selectedProducts]);
 

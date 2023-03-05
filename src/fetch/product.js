@@ -17,7 +17,7 @@ export function useListProduct(filter = "", options = {}) {
     return data;
   }
 
-  return useQuery(["product", "list"], fetchFn, options);
+  return useQuery(["product", "list", filter], fetchFn, options);
 }
 
 export function useFetchSimilarProduct(productId, options = {}, a) {

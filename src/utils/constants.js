@@ -6,11 +6,15 @@ export const S3_SERVER =
 export const API_TOKEN = "API_TOKEN";
 
 export const productSubCategories = [
-  { name: "Cashew", id: 1 },
-  { name: "Raisins / Kishmish", id: 2 },
-  { name: "Cinnamon", id: 3 },
-  { name: "Cloves", id: 4 },
+  { name: "Cashew Baby", id: 1 },
+  { name: "Cashew 2pc", id: 6 },
+  { name: "Cashew 4pc", id: 7 },
+  { name: "Raisins / Kishmish", id: 9 },
+  { name: "Cinnamon", id: 2 },
+  { name: "Cloves", id: 3 },
   { name: "Bay Leaves", id: 5 },
   { name: "Star Anise", id: 6 },
   { name: "Chilli Powder", id: 7 },
+  { name: "Pudding", id: 8 },
+  { name: "Pepper", id: 4 },
 ];
