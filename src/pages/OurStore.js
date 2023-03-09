@@ -130,32 +130,6 @@ const OurStore = () => {
                 </ul>
               </div>
             </div>
-            <div className="filter-card mb-3">
-              <h3 className="filter-title">Filter By</h3>
-              <div>
-                <h5 className="sub-title">Price</h5>
-                <div className="d-flex flex-wrap align-items-center gap-10">
-                  <div className="form-floating">
-                    <input
-                      type="number"
-                      className="form-control min-form"
-                      id="floatingInput"
-                      placeholder="From"
-                    />
-                    <label htmlFor="floatingInput">min</label>
-                  </div>
-                  <div className="form-floating">
-                    <input
-                      type="number"
-                      className="form-control min-form"
-                      id="floatingInput1"
-                      placeholder="To"
-                    />
-                    <label htmlFor="floatingInput1">max</label>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
           <div className="col-9">
             <div className="filter-sort-grid mb-4">
