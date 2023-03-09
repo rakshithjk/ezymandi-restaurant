@@ -8,17 +8,13 @@ import { useFetchProductCategories } from "../fetch/productCategories";
 import { useSearchParams } from "react-router-dom";
 import { productSubCategories } from "../utils/constants";
 
-const constructListFilter = (category = "", products = "") => {
-  let filter = "";
+const constructListFilter = (category = "", products = "", sort = "") => {
+  let filter = `sort=${sort}`;
   if (category.length > 0) {
-    filter = `category=${category.join(",")}`;
+    filter = filter + `&category=${category.join(",")}`;
   }
   if (products.length > 0) {
-    if (filter.length > 0) {
-      filter = filter + `&subCategory=${products.join(",")}`;
-    } else {
-      filter = `subCategory=${products.join(",")}`;
-    }
+    filter = filter + `&subCategory=${products.join(",")}`;
   }
 
   return filter;
@@ -47,8 +43,10 @@ const OurStore = () => {
     JSON.parse(searchParams.get("subCategory") ?? "[]")
   );
 
+  const [sortCriteria, setSortCriteria] = useState("1");
+
   const { data, refetch } = useListProduct(
-    constructListFilter(selectedCategory, selectedProducts)
+    constructListFilter(selectedCategory, selectedProducts, sortCriteria)
   );
 
   useEffect(() => {
@@ -172,21 +170,13 @@ const OurStore = () => {
                       defaultValue={"manula"}
                       className="form-control form-select"
                       id=""
+                      onChange={(e) => setSortCriteria(e.target.value)}
                     >
-                      <option value="manual">Featured</option>
-                      <option value="best-selling">Best selling</option>
-                      <option value="title-ascending">
-                        Alphabetically, A-Z
-                      </option>
-                      <option value="title-descending">
-                        Alphabetically, Z-A
-                      </option>
-                      <option value="price-ascending">
-                        Price, low to high
-                      </option>
-                      <option value="price-descending">
-                        Price, high to low
-                      </option>
+                      <option value="1">Featured</option>
+                      <option value="2">Alphabetically, A-Z</option>
+                      <option value="3">Alphabetically, Z-A</option>
+                      <option value="4">Price, low to high</option>
+                      <option value="5">Price, high to low</option>
                     </select>
                   </div>
                 )}
