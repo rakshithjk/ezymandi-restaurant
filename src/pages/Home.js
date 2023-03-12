@@ -69,7 +69,12 @@ const Home = () => {
                   alt="main banner"
                 />
               </div>
-              <div className="d-flex justify-content-between small-banner green position-relative ">
+              <div
+                className="d-flex justify-content-between small-banner green position-relative "
+                onClick={() => {
+                  navigate("/products?subCategory=10");
+                }}
+              >
                 <div className="small-banner-content ">
                   <h4>Organic </h4>
                   <h5>Raisins</h5>

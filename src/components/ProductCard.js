@@ -28,7 +28,7 @@ const ProductCard = (props) => {
           <div className="product-details">
             <h6 className="brand">{data.ProductName}</h6>
 
-            <p className="price">{data.ProductPrice}</p>
+            <p className="price">₹ {data.ProductPrice}</p>
           </div>
           <div className="action-bar position-absolute">
             <div className="d-flex flex-column gap-15">
