@@ -9,7 +9,7 @@ const Signup = () => {
 
   const { mutate: registerFn } = useRegister({
     onSuccess: (resp) => {
-      setRegisterResponse(resp.data);
+      setRegisterResponse(resp.status);
     },
   });
 
@@ -53,7 +53,15 @@ const Signup = () => {
                   </div>
                 </div>
               </form>
-              <h3>{registerResponse}</h3>
+              <div className="align-items-center d-flex justify-content-center p-5">
+                <h3>
+                  {registerResponse
+                    ? registerResponse === 200
+                      ? "Registration Success"
+                      : "Something went wrong. Please reach out to us via whatsapp/call"
+                    : ""}
+                </h3>
+              </div>
             </div>
           </div>
         </div>

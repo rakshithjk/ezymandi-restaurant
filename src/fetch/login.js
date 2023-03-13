@@ -13,8 +13,8 @@ export function useLogin(options = {}) {
 }
 
 export function useRegister(options = {}) {
-  async function mutationFn() {
-    const reponse = await axios.post(`${API_SERVER}/register`);
+  async function mutationFn(data) {
+    const reponse = await axios.post(`${API_SERVER}/register`, data);
     return reponse;
   }
   return useMutation(mutationFn, options);
