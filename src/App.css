@@ -494,7 +494,7 @@ footer .input-group-text {
 .auth-card {
   padding: 20px;
   background-color: white;
-  width: 500px;
+  max-width: 500px;
   margin: 30px auto;
   border-radius: 10px;
 }
